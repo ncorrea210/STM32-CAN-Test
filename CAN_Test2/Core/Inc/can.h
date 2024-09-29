@@ -10,6 +10,7 @@ typedef union {
 		union {
 			int32_t ival;
 			float fval;
+			bool bval;
 		};
 		int16_t reserved;
 	};
