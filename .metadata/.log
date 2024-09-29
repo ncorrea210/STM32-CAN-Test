@@ -1,0 +1,27 @@
+!SESSION 2024-09-28 21:42:54.626 -----------------------------------------------
+eclipse.buildId=Version 1.16.1
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-09-28 21:43:09.573
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-09-28 21:43:09.581
+!MESSAGE Log4j2 initialized with config file C:\Users\corre\coding\can-test-1\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-09-28 21:43:14.393
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-09-28 21:43:39.310
+!MESSAGE Indexed 'CAN_Test' (33 sources, 122 headers) in 7.43 sec: 13,809 declarations; 78,382 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.16%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-09-28 21:43:43.887
+!MESSAGE Indexed 'CAN_Test2' (29 sources, 122 headers) in 3.86 sec: 13,169 declarations; 68,708 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.18%)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-09-28 21:44:15.141
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 96000000; div: 48
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-09-28 21:44:47.356
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 96000000; div: 48
