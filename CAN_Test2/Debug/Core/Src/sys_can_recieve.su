@@ -1,0 +1,3 @@
+../Core/Src/sys_can_recieve.c:7:13:nop	24	static
+../Core/Src/sys_can_recieve.c:9:13:msg1_handler	24	static
+../Core/Src/sys_can_recieve.c:13:13:msg2_handler	24	static

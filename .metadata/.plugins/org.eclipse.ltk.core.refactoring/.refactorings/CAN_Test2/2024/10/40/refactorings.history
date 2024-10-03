@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;CAN_Test2/Core/Src/sys_can.c&apos; to &apos;sys_can_recieve.c&apos;" description="Rename resource &apos;sys_can.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/sys_can.c" name="sys_can_recieve.c" stamp="1727801386000" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;CAN_Test2/Core/Inc/sys_can.h&apos; to &apos;sys_can_recieve.h&apos;" description="Rename resource &apos;sys_can.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Inc/sys_can.h" name="sys_can_recieve.h" stamp="1727801395116" updateReferences="true"/>
+</session>

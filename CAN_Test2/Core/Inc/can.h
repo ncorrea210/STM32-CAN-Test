@@ -17,5 +17,4 @@ typedef union {
 	uint8_t data[8];
 } can_data_t;
 
-
 #endif

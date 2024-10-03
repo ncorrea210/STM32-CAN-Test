@@ -21,6 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <sys_can_recieve.h>
 #include "can.h"
 /* USER CODE END Includes */
 
@@ -65,41 +66,16 @@ static void MX_CAN1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-CAN_TxHeaderTypeDef TxHeader;
-CAN_RxHeaderTypeDef RxHeader;
 
-
-uint8_t TxData[8];
-uint8_t RxData[8];
-
-
-uint32_t TxMailbox;
-
-int datacheck = 0;
-uint8_t recieve1 = 0;
-uint8_t recieve2 = 0;
-uint8_t recieve3 = 0;
-uint8_t recieve4 = 0;
-uint8_t recieve5 = 0;
 
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 {
 
-	can_data_t msg;
-//	uint8_t data[8];
-	HAL_CAN_GetRxMessage(&hcan1, CAN_RX_FIFO0, &RxHeader, msg.data);
-
-	if (msg.ID == 1) {
-		HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin, msg.ival);
-	}
-
-	if (msg.ID == 2) {
-		HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, msg.ival);
-	}
-
-//	if (msg.ID == 3) {
-//		HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, msg.ival);
-//	}
+	static can_data_t msg;
+	static CAN_RxHeaderTypeDef RxHeader;
+	if (HAL_CAN_GetRxMessage(&hcan1, CAN_RX_FIFO0, &RxHeader, msg.data) != HAL_OK ) return;
+	if (msg.ID - 1 > can_num_functions) return;
+	can_functions[msg.ID - 1](msg);
 
 }
 
@@ -145,23 +121,6 @@ int main(void)
 
   HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING);
 
-  uint8_t period = 1000; //ms
-
-
-  TxHeader.DLC = 2;  // data length
-  TxHeader.IDE = CAN_ID_STD;
-  TxHeader.RTR = CAN_RTR_DATA;
-  TxHeader.StdId = 0x104;  // ID
-
-
-  TxData[0] = 200;  // ms delay
-  TxData[1] = 20;  // loop rep
-//
-//  can_data_t recieve;
-//  CAN_RXHeaderTypeDef recieve_header;
-//
-//  uint64_t counter = 0;
-
 
   /* USER CODE END 2 */
 
@@ -172,31 +131,6 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
-
-//	  HAL_Delay (1000);
-//	  HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin, 0);
-//	  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, 0);
-//	  HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, 0);
-
-//	  switch (recieve5) {
-//
-//	  	  case 0:
-//			  HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin, 1);
-//	  	  break;
-//	  	  case 1:
-//	  	      HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, 1);
-//	  	  break;
-//	  	  default:
-//	  		  HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, 1);
-//	  	  break;
-//
-//	  }
-
-
-//		  if (HAL_CAN_AddTxMessage(&hcan1, &TxHeader, TxData, &TxMailbox) != HAL_OK) {
-//			  Error_Handler();
-//		  }
 
     /* USER CODE BEGIN 3 */
   }

@@ -12,6 +12,7 @@ typedef union {
 			float fval;
 			bool bval;
 		};
+		// not for user use
 		int16_t reserved;
 	};
 	uint8_t data[8];

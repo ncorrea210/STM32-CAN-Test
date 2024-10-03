@@ -1,0 +1,4 @@
+#include "sys_can_transmit.h"
+
+const int num_tx_params = 2;
+tx_params last_tx_params[2];

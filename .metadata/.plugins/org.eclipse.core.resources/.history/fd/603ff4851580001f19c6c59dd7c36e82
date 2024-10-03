@@ -1,0 +1,7 @@
+#ifndef
+#define SYS_CAN_TRANSMIT_H
+
+extern const int num_messages;
+extern void (*can_transmit_functions[])();
+
+#endif

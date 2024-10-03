@@ -1,0 +1,21 @@
+#include "sys_can_transmit.h"
+
+const int num_tx_params = 2;
+tx_param_t last_tx_params[2];
+const uint32_t std_id = 0x103;
+const uint32_t std_DLD = 8;
+const uint32_t std_IDE = CAN_ID_STD;
+const uint32_t std_RTR = CAN_RTR_DATA;
+
+void can_tx_init() {
+
+	// code here to be auto generated but for now it will not be
+
+
+}
+
+void can_incremental_update(tx_param_t* tx_params) {
+	for (int i = 0; i < num_tx_params; i++) {
+
+	}
+}
