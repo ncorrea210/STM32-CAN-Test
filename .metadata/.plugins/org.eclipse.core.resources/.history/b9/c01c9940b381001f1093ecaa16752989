@@ -139,6 +139,55 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
+
+//	  if (datacheck)
+//	  {
+//		  // blink the LED
+//		  for (int i=0; i<RxData[1]; i++)
+//		  {
+//			  HAL_GPIO_TogglePin(LD1_GPIO_Port, LD1_Pin);
+//			  HAL_Delay(RxData[0]);
+//		  }
+//		  datacheck = 0;
+//
+//
+//	  }
+
+//	  HAL_GPIO_TogglePin(LD1_GPIO_Port, LD1_Pin);
+
+//	  for (int i = 0; i < 100; i++) {
+//		  CAN_TxHeaderTypeDef tx;
+//		  tx.DLC = 8;
+//		  tx.IDE = CAN_ID_STD;
+//		  tx.RTR = CAN_RTR_DATA;
+//		  tx.StdId = 0x110 + i;
+//		  uint8_t data[8] = {0};
+//		  while (HAL_CAN_AddTxMessage(&hcan1, &tx, data, &TxMailbox) != HAL_OK);
+//		  message_count++;
+//	  }
+
+//	  switch (i % 3) {
+//	  case 0:
+//		  tx_1.ival = true;
+//		  tx_2.ival = false;
+//		  tx_3.ival = false;
+//	  break;
+//	  case 1:
+//		  tx_1.ival = false;
+//		  tx_2.ival = true;
+//		  tx_3.ival = false;
+//	  break;
+//	  case 2:
+//		  tx_1.ival = false;
+//		  tx_2.ival = false;
+//		  tx_3.ival = true;
+//	  break;
+//	  }
+//
+//	  while (HAL_CAN_AddTxMessage(&hcan1, &tx_header_1, tx_1.data, &TxMailbox) != HAL_OK);
+//	  while (HAL_CAN_AddTxMessage(&hcan1, &tx_header_2, tx_2.data, &TxMailbox) != HAL_OK);
+//	  while (HAL_CAN_AddTxMessage(&hcan1, &tx_header_3, tx_3.data, &TxMailbox) != HAL_OK);
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

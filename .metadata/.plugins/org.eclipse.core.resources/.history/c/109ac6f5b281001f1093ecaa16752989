@@ -22,7 +22,6 @@
 #include "stm32f7xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "sys_can_transmit.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -205,34 +204,11 @@ void SysTick_Handler(void)
 void TIM2_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM2_IRQn 0 */
-  static int i = 0;
+
   /* USER CODE END TIM2_IRQn 0 */
   HAL_TIM_IRQHandler(&htim2);
   /* USER CODE BEGIN TIM2_IRQn 1 */
-  bool led_1_on;
-  bool led_2_on;
 
-  switch (i % 3) {
-
-  case 0:
-	  led_1_on = false;
-	  led_2_on = false;
-  break;
-  case 1:
-	  led_1_on = true;
-	  led_2_on = false;
-  break;
-  case 2:
-	  led_1_on = false;
-	  led_2_on = true;
-  }
-
-  current_tx_params[LD1_CAN].tx_data.bval = led_1_on;
-  current_tx_params[LD2_CAN].tx_data.bval = led_2_on;
-
-  can_tx_refresh(current_tx_params);
-
-  i++;
   /* USER CODE END TIM2_IRQn 1 */
 }
 

@@ -22,7 +22,7 @@ extern const int num_tx_params;
 /*
  * inits transmit params to be empty
  */
-void can_tx_init(CAN_HandleTypeDef* hcan, uint32_t* mailbox);
+void can_tx_init();
 
 /**
  * Checks which params have changed and updates them
