@@ -1,0 +1,53 @@
+#include "sys_can_recieve.h"
+#include "stm32f7xx_hal.h"
+#include "main.h"
+
+typedef struct {
+	can_data_t data;
+	uint32_t timestamp;
+	bool stale;
+} rx_param_t;
+
+const int can_num_functions = 2;
+rx_param_t rx_params[2];
+
+void can_recieve_message(CAN_HandleTypeDef* hcan) {
+	static CAN_RxHeaderTypeDef RxHeader;
+	static rx_param_t rx_param;
+	if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, rx_param.data.data) != HAL_OK ) return;
+	can_functions[rx_param.data.ID - 1](rx_param.data);
+	rx_params[rx_param.data.ID - 1].stale = false;
+	rx_params[rx_param.data.ID - 1].timestamp = HAL_GetTick();
+
+}
+
+void can_check_stale() {
+	uint32_t tick = HAL_GetTick();
+	for (int i = 0; i < can_num_functions; i++) {
+		if (rx_params[i].timestamp - 1000 > tick) {
+			rx_params[i].stale = true;
+		}
+	}
+	for (int i = 0; i < can_num_functions; i++) {
+		if (rx_params[i].stale == true) {
+			HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin, 1);
+			HAL_GPIO_WritePin(LD1_GPIO_Port, LD2_Pin, 1);
+		}
+	}
+}
+
+static void nop(can_data_t msg) { return; }
+
+static void msg1_handler(can_data_t msg) {
+	HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin, msg.bval);
+}
+
+static void msg2_handler(can_data_t msg) {
+	HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, msg.bval);
+}
+
+void (*can_functions[2])(can_data_t) =
+		{
+			msg1_handler,
+			msg2_handler
+		};

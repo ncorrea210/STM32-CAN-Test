@@ -68,14 +68,8 @@ static void MX_CAN1_Init(void);
 /* USER CODE BEGIN 0 */
 
 
-void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
-{
-
-	static can_data_t msg;
-	static CAN_RxHeaderTypeDef RxHeader;
-	if (HAL_CAN_GetRxMessage(&hcan1, CAN_RX_FIFO0, &RxHeader, msg.data) != HAL_OK ) return;
-	can_functions[msg.ID - 1](msg);
-
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
+	can_recieve_message(hcan);
 }
 
 
@@ -130,8 +124,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	can_recieve_stale();
 
-    /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }

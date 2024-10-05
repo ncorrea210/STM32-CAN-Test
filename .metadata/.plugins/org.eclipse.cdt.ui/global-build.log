@@ -2275,3 +2275,665 @@ Finished building: default.size.stdout
  
 Finished building: CAN_Test2.list
  
+16:54:38 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+16:54:38 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/sys_can_recieve.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_recieve.d" -MT"Core/Src/sys_can_recieve.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_recieve.o"
+In file included from ../Core/Src/sys_can_recieve.c:1:
+../Core/Inc/sys_can_recieve.h:15:26: error: unknown type name 'CAN_HandleTypeDef'
+   15 | void can_recieve_message(CAN_HandleTypeDef* hcan);
+      |                          ^~~~~~~~~~~~~~~~~
+../Core/Src/sys_can_recieve.c:9:3: error: conflicting types for 'rx_param_t'; have 'struct <anonymous>'
+    9 | } rx_param_t;
+      |   ^~~~~~~~~~
+../Core/Inc/sys_can_recieve.h:13:3: note: previous declaration of 'rx_param_t' with type 'rx_param_t'
+   13 | } rx_param_t;
+      |   ^~~~~~~~~~
+../Core/Src/sys_can_recieve.c: In function 'can_recieve_message':
+../Core/Src/sys_can_recieve.c:17:35: error: 'hcan1' undeclared (first use in this function); did you mean 'hcan'?
+   17 |         if (HAL_CAN_GetRxMessage(&hcan1, CAN_RX_FIFO0, &RxHeader, rx_param.data.data) != HAL_OK ) return;
+      |                                   ^~~~~
+      |                                   hcan
+../Core/Src/sys_can_recieve.c:17:35: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/sys_can_recieve.c: In function 'can_check_stale':
+../Core/Src/sys_can_recieve.c:31:56: error: invalid operands to binary == (have 'rx_param_t' and 'int')
+   31 |         if (rx_params[0].stale == true || rx_params[1] == true) {
+      |                                           ~~~~~~~~~~~~ ^~
+      |                                                    |
+      |                                                    rx_param_t
+../Core/Src/sys_can_recieve.c: At top level:
+../Core/Src/sys_can_recieve.c:37:13: warning: 'nop' defined but not used [-Wunused-function]
+   37 | static void nop(can_data_t msg) { return; }
+      |             ^~~
+../Core/Src/main.c: In function 'HAL_CAN_RxFifo0MsgPendingCallback':
+../Core/Src/main.c:72:9: warning: implicit declaration of function 'can_recieve_messages'; did you mean 'can_recieve_message'? [-Wimplicit-function-declaration]
+   72 |         can_recieve_messages(hcan);
+      |         ^~~~~~~~~~~~~~~~~~~~
+      |         can_recieve_message
+make: *** [Core/Src/subdir.mk:37: Core/Src/sys_can_recieve.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j22 all" terminated with exit code 2. Build might be incomplete.
+16:54:44 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+16:54:45 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/sys_can_recieve.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_recieve.d" -MT"Core/Src/sys_can_recieve.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_recieve.o"
+In file included from ../Core/Src/sys_can_recieve.c:1:
+../Core/Inc/sys_can_recieve.h:15:26: error: unknown type name 'CAN_HandleTypeDef'
+   15 | void can_recieve_message(CAN_HandleTypeDef* hcan);
+      |                          ^~~~~~~~~~~~~~~~~
+../Core/Src/sys_can_recieve.c:9:3: error: conflicting types for 'rx_param_t'; have 'struct <anonymous>'
+    9 | } rx_param_t;
+      |   ^~~~~~~~~~
+../Core/Inc/sys_can_recieve.h:13:3: note: previous declaration of 'rx_param_t' with type 'rx_param_t'
+   13 | } rx_param_t;
+      |   ^~~~~~~~~~
+../Core/Src/sys_can_recieve.c: In function 'can_recieve_message':
+../Core/Src/sys_can_recieve.c:17:35: error: 'hcan1' undeclared (first use in this function); did you mean 'hcan'?
+   17 |         if (HAL_CAN_GetRxMessage(&hcan1, CAN_RX_FIFO0, &RxHeader, rx_param.data.data) != HAL_OK ) return;
+      |                                   ^~~~~
+      |                                   hcan
+../Core/Src/sys_can_recieve.c:17:35: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/sys_can_recieve.c: In function 'can_check_stale':
+../Core/Src/sys_can_recieve.c:31:56: error: invalid operands to binary == (have 'rx_param_t' and 'int')
+   31 |         if (rx_params[0].stale == true || rx_params[1] == true) {
+      |                                           ~~~~~~~~~~~~ ^~
+      |                                                    |
+      |                                                    rx_param_t
+../Core/Src/sys_can_recieve.c: At top level:
+../Core/Src/sys_can_recieve.c:37:13: warning: 'nop' defined but not used [-Wunused-function]
+   37 | static void nop(can_data_t msg) { return; }
+      |             ^~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/sys_can_recieve.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j22 all" terminated with exit code 2. Build might be incomplete.
+16:55:10 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+16:55:11 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/sys_can_recieve.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_recieve.d" -MT"Core/Src/sys_can_recieve.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_recieve.o"
+In file included from ../Core/Src/sys_can_recieve.c:1:
+../Core/Inc/sys_can_recieve.h:15:26: error: unknown type name 'CAN_HandleTypeDef'
+   15 | void can_recieve_message(CAN_HandleTypeDef* hcan);
+      |                          ^~~~~~~~~~~~~~~~~
+../Core/Src/sys_can_recieve.c:9:3: error: conflicting types for 'rx_param_t'; have 'struct <anonymous>'
+    9 | } rx_param_t;
+      |   ^~~~~~~~~~
+../Core/Inc/sys_can_recieve.h:13:3: note: previous declaration of 'rx_param_t' with type 'rx_param_t'
+   13 | } rx_param_t;
+      |   ^~~~~~~~~~
+../Core/Src/sys_can_recieve.c: In function 'can_recieve_message':
+../Core/Src/sys_can_recieve.c:17:13: warning: implicit declaration of function 'CAN_GetRxMessage'; did you mean 'HAL_CAN_GetRxMessage'? [-Wimplicit-function-declaration]
+   17 |         if (CAN_GetRxMessage(&hcan1, CAN_RX_FIFO0, &RxHeader, rx_param.data.data) != HAL_OK ) return;
+      |             ^~~~~~~~~~~~~~~~
+      |             HAL_CAN_GetRxMessage
+../Core/Src/sys_can_recieve.c:17:31: error: 'hcan1' undeclared (first use in this function); did you mean 'hcan'?
+   17 |         if (CAN_GetRxMessage(&hcan1, CAN_RX_FIFO0, &RxHeader, rx_param.data.data) != HAL_OK ) return;
+      |                               ^~~~~
+      |                               hcan
+../Core/Src/sys_can_recieve.c:17:31: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/sys_can_recieve.c: At top level:
+../Core/Src/sys_can_recieve.c:37:13: warning: 'nop' defined but not used [-Wunused-function]
+   37 | static void nop(can_data_t msg) { return; }
+      |             ^~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/sys_can_recieve.o] Error 1
+"make -j22 all" terminated with exit code 2. Build might be incomplete.
+16:55:21 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+16:55:21 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/sys_can_recieve.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_recieve.d" -MT"Core/Src/sys_can_recieve.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_recieve.o"
+In file included from ../Core/Src/sys_can_recieve.c:1:
+../Core/Inc/sys_can_recieve.h:15:26: error: unknown type name 'CAN_HandleTypeDef'
+   15 | void can_recieve_message(CAN_HandleTypeDef* hcan);
+      |                          ^~~~~~~~~~~~~~~~~
+../Core/Src/sys_can_recieve.c:9:3: error: conflicting types for 'rx_param_t'; have 'struct <anonymous>'
+    9 | } rx_param_t;
+      |   ^~~~~~~~~~
+../Core/Inc/sys_can_recieve.h:13:3: note: previous declaration of 'rx_param_t' with type 'rx_param_t'
+   13 | } rx_param_t;
+      |   ^~~~~~~~~~
+../Core/Src/sys_can_recieve.c: In function 'can_recieve_message':
+../Core/Src/sys_can_recieve.c:17:13: warning: implicit declaration of function 'CAN_GetRxMessage'; did you mean 'HAL_CAN_GetRxMessage'? [-Wimplicit-function-declaration]
+   17 |         if (CAN_GetRxMessage(&hcan1, CAN_RX_FIFO0, &RxHeader, rx_param.data.data) != HAL_OK ) return;
+      |             ^~~~~~~~~~~~~~~~
+      |             HAL_CAN_GetRxMessage
+../Core/Src/sys_can_recieve.c:17:31: error: 'hcan1' undeclared (first use in this function); did you mean 'hcan'?
+   17 |         if (CAN_GetRxMessage(&hcan1, CAN_RX_FIFO0, &RxHeader, rx_param.data.data) != HAL_OK ) return;
+      |                               ^~~~~
+      |                               hcan
+../Core/Src/sys_can_recieve.c:17:31: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/sys_can_recieve.c: At top level:
+../Core/Src/sys_can_recieve.c:37:13: warning: 'nop' defined but not used [-Wunused-function]
+   37 | static void nop(can_data_t msg) { return; }
+      |             ^~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/sys_can_recieve.o] Error 1
+"make -j22 all" terminated with exit code 2. Build might be incomplete.
+16:55:35 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+16:55:35 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/sys_can_recieve.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_recieve.d" -MT"Core/Src/sys_can_recieve.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_recieve.o"
+In file included from ../Core/Src/sys_can_recieve.c:1:
+../Core/Inc/sys_can_recieve.h:15:26: error: unknown type name 'CAN_HandleTypeDef'
+   15 | void can_recieve_message(CAN_HandleTypeDef* hcan);
+      |                          ^~~~~~~~~~~~~~~~~
+../Core/Src/sys_can_recieve.c:9:3: error: conflicting types for 'rx_param_t'; have 'struct <anonymous>'
+    9 | } rx_param_t;
+      |   ^~~~~~~~~~
+../Core/Inc/sys_can_recieve.h:13:3: note: previous declaration of 'rx_param_t' with type 'rx_param_t'
+   13 | } rx_param_t;
+      |   ^~~~~~~~~~
+../Core/Src/sys_can_recieve.c: In function 'can_recieve_message':
+../Core/Src/sys_can_recieve.c:17:13: warning: implicit declaration of function 'CAN_GetRxMessage'; did you mean 'HAL_CAN_GetRxMessage'? [-Wimplicit-function-declaration]
+   17 |         if (CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, rx_param.data.data) != HAL_OK ) return;
+      |             ^~~~~~~~~~~~~~~~
+      |             HAL_CAN_GetRxMessage
+../Core/Src/sys_can_recieve.c: At top level:
+../Core/Src/sys_can_recieve.c:37:13: warning: 'nop' defined but not used [-Wunused-function]
+   37 | static void nop(can_data_t msg) { return; }
+      |             ^~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/sys_can_recieve.o] Error 1
+"make -j22 all" terminated with exit code 2. Build might be incomplete.
+16:55:47 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+16:55:48 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/sys_can_recieve.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_recieve.d" -MT"Core/Src/sys_can_recieve.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_recieve.o"
+In file included from ../Core/Src/sys_can_recieve.c:1:
+../Core/Inc/sys_can_recieve.h:15:26: error: unknown type name 'CAN_HandleTypeDef'
+   15 | void can_recieve_message(CAN_HandleTypeDef* hcan);
+      |                          ^~~~~~~~~~~~~~~~~
+../Core/Src/sys_can_recieve.c:9:3: error: conflicting types for 'rx_param_t'; have 'struct <anonymous>'
+    9 | } rx_param_t;
+      |   ^~~~~~~~~~
+../Core/Inc/sys_can_recieve.h:13:3: note: previous declaration of 'rx_param_t' with type 'rx_param_t'
+   13 | } rx_param_t;
+      |   ^~~~~~~~~~
+../Core/Src/sys_can_recieve.c:37:13: warning: 'nop' defined but not used [-Wunused-function]
+   37 | static void nop(can_data_t msg) { return; }
+      |             ^~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/sys_can_recieve.o] Error 1
+"make -j22 all" terminated with exit code 2. Build might be incomplete.
+16:56:05 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+16:56:05 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/sys_can_recieve.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_recieve.d" -MT"Core/Src/sys_can_recieve.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_recieve.o"
+In file included from ../Core/Src/sys_can_recieve.c:1:
+../Core/Inc/sys_can_recieve.h:9:26: error: unknown type name 'CAN_HandleTypeDef'
+    9 | void can_recieve_message(CAN_HandleTypeDef* hcan);
+      |                          ^~~~~~~~~~~~~~~~~
+../Core/Src/sys_can_recieve.c:37:13: warning: 'nop' defined but not used [-Wunused-function]
+   37 | static void nop(can_data_t msg) { return; }
+      |             ^~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/sys_can_recieve.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j22 all" terminated with exit code 2. Build might be incomplete.
+16:56:24 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+16:56:24 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/sys_can_recieve.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_recieve.d" -MT"Core/Src/sys_can_recieve.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_recieve.o"
+../Core/Src/sys_can_recieve.c:37:13: warning: 'nop' defined but not used [-Wunused-function]
+   37 | static void nop(can_data_t msg) { return; }
+      |             ^~~
+arm-none-eabi-gcc -o "CAN_Test2.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\corre\coding\can-test-1\CAN_Test2\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Test2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Test2.elf
+ 
+arm-none-eabi-size  CAN_Test2.elf 
+arm-none-eabi-objdump -h -S CAN_Test2.elf  > "CAN_Test2.list"
+   text	   data	    bss	    dec	    hex	filename
+  17612	     20	   3084	  20716	   50ec	CAN_Test2.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Test2.list
+ 
+16:56:30 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+16:56:31 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17612	     20	   3084	  20716	   50ec	CAN_Test2.elf
+Finished building: default.size.stdout
+ 
+16:59:52 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+16:59:52 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/sys_can_recieve.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_recieve.d" -MT"Core/Src/sys_can_recieve.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_recieve.o"
+../Core/Src/sys_can_recieve.c:39:13: warning: 'nop' defined but not used [-Wunused-function]
+   39 | static void nop(can_data_t msg) { return; }
+      |             ^~~
+arm-none-eabi-gcc -o "CAN_Test2.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\corre\coding\can-test-1\CAN_Test2\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Test2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Test2.elf
+ 
+arm-none-eabi-size  CAN_Test2.elf 
+arm-none-eabi-objdump -h -S CAN_Test2.elf  > "CAN_Test2.list"
+   text	   data	    bss	    dec	    hex	filename
+  17612	     20	   3084	  20716	   50ec	CAN_Test2.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Test2.list
+ 
+17:03:03 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+17:03:03 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/sys_can_recieve.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_recieve.d" -MT"Core/Src/sys_can_recieve.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_recieve.o"
+../Core/Src/sys_can_recieve.c:5:31: warning: missing option after '#pragma GCC diagnostic' kind [-Wpragmas]
+    5 | #pragma GCC diagnostic ignored
+      |                               ^
+../Core/Src/sys_can_recieve.c:41:13: warning: 'nop' defined but not used [-Wunused-function]
+   41 | static void nop(can_data_t msg) { return; }
+      |             ^~~
+arm-none-eabi-gcc -o "CAN_Test2.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\corre\coding\can-test-1\CAN_Test2\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Test2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Test2.elf
+ 
+arm-none-eabi-size  CAN_Test2.elf 
+arm-none-eabi-objdump -h -S CAN_Test2.elf  > "CAN_Test2.list"
+   text	   data	    bss	    dec	    hex	filename
+  17612	     20	   3084	  20716	   50ec	CAN_Test2.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Test2.list
+ 
+17:03:21 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+17:03:22 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/sys_can_recieve.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_recieve.d" -MT"Core/Src/sys_can_recieve.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_recieve.o"
+../Core/Src/sys_can_recieve.c:39:13: warning: 'nop' defined but not used [-Wunused-function]
+   39 | static void nop(can_data_t msg) { return; }
+      |             ^~~
+arm-none-eabi-gcc -o "CAN_Test2.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\corre\coding\can-test-1\CAN_Test2\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Test2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Test2.elf
+ 
+arm-none-eabi-size  CAN_Test2.elf 
+arm-none-eabi-objdump -h -S CAN_Test2.elf  > "CAN_Test2.list"
+   text	   data	    bss	    dec	    hex	filename
+  17612	     20	   3084	  20716	   50ec	CAN_Test2.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Test2.list
+ 
+17:03:36 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+17:03:36 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/sys_can_recieve.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_recieve.d" -MT"Core/Src/sys_can_recieve.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_recieve.o"
+../Core/Src/sys_can_recieve.c:5:32: warning: missing option after '#pragma GCC diagnostic' kind [-Wpragmas]
+    5 | #pragma GCC diagnostic ignored 1
+      |                                ^
+../Core/Src/sys_can_recieve.c:41:13: warning: 'nop' defined but not used [-Wunused-function]
+   41 | static void nop(can_data_t msg) { return; }
+      |             ^~~
+arm-none-eabi-gcc -o "CAN_Test2.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\corre\coding\can-test-1\CAN_Test2\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Test2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Test2.elf
+ 
+arm-none-eabi-size  CAN_Test2.elf 
+arm-none-eabi-objdump -h -S CAN_Test2.elf  > "CAN_Test2.list"
+   text	   data	    bss	    dec	    hex	filename
+  17612	     20	   3084	  20716	   50ec	CAN_Test2.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Test2.list
+ 
+17:03:46 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+17:03:47 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/sys_can_recieve.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_recieve.d" -MT"Core/Src/sys_can_recieve.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_recieve.o"
+../Core/Src/sys_can_recieve.c:39:13: warning: 'nop' defined but not used [-Wunused-function]
+   39 | static void nop(can_data_t msg) { return; }
+      |             ^~~
+arm-none-eabi-gcc -o "CAN_Test2.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\corre\coding\can-test-1\CAN_Test2\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Test2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Test2.elf
+ 
+arm-none-eabi-size  CAN_Test2.elf 
+arm-none-eabi-objdump -h -S CAN_Test2.elf  > "CAN_Test2.list"
+   text	   data	    bss	    dec	    hex	filename
+  17612	     20	   3084	  20716	   50ec	CAN_Test2.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Test2.list
+ 
+17:12:44 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+17:12:44 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17612	     20	   3084	  20716	   50ec	CAN_Test2.elf
+Finished building: default.size.stdout
+ 
+17:12:53 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+17:12:54 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17612	     20	   3084	  20716	   50ec	CAN_Test2.elf
+Finished building: default.size.stdout
+ 
+17:12:57 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+17:13:17 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+17:13:17 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17612	     20	   3084	  20716	   50ec	CAN_Test2.elf
+Finished building: default.size.stdout
+ 
+17:15:33 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+17:15:34 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:127:9: warning: implicit declaration of function 'can_check_stale'; did you mean 'can_recieve_stale'? [-Wimplicit-function-declaration]
+  127 |         can_check_stale();
+      |         ^~~~~~~~~~~~~~~
+      |         can_recieve_stale
+arm-none-eabi-gcc -o "CAN_Test2.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\corre\coding\can-test-1\CAN_Test2\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Test2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Test2.elf
+ 
+arm-none-eabi-size  CAN_Test2.elf 
+arm-none-eabi-objdump -h -S CAN_Test2.elf  > "CAN_Test2.list"
+   text	   data	    bss	    dec	    hex	filename
+  17780	     20	   3084	  20884	   5194	CAN_Test2.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Test2.list
+ 
+17:17:00 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+17:17:00 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/sys_can_recieve.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_recieve.d" -MT"Core/Src/sys_can_recieve.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_recieve.o"
+../Core/Src/sys_can_recieve.c:39:13: warning: 'nop' defined but not used [-Wunused-function]
+   39 | static void nop(can_data_t msg) { return; }
+      |             ^~~
+arm-none-eabi-gcc -o "CAN_Test2.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\corre\coding\can-test-1\CAN_Test2\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Test2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Test2.elf
+ 
+arm-none-eabi-size  CAN_Test2.elf 
+arm-none-eabi-objdump -h -S CAN_Test2.elf  > "CAN_Test2.list"
+   text	   data	    bss	    dec	    hex	filename
+  17776	     20	   3084	  20880	   5190	CAN_Test2.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Test2.list
+ 
+17:23:54 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+17:23:54 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/sys_can_recieve.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_recieve.d" -MT"Core/Src/sys_can_recieve.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_recieve.o"
+../Core/Src/sys_can_recieve.c:39:13: warning: 'nop' defined but not used [-Wunused-function]
+   39 | static void nop(can_data_t msg) { return; }
+      |             ^~~
+arm-none-eabi-gcc -o "CAN_Test2.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\corre\coding\can-test-1\CAN_Test2\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Test2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Test2.elf
+ 
+arm-none-eabi-size  CAN_Test2.elf 
+arm-none-eabi-objdump -h -S CAN_Test2.elf  > "CAN_Test2.list"
+   text	   data	    bss	    dec	    hex	filename
+  17776	     20	   3084	  20880	   5190	CAN_Test2.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Test2.list
+ 
+17:54:18 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+17:54:18 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/sys_can_recieve.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_recieve.d" -MT"Core/Src/sys_can_recieve.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_recieve.o"
+../Core/Src/sys_can_recieve.c:53:25: warning: excess elements in array initializer
+   53 |                         nop
+      |                         ^~~
+../Core/Src/sys_can_recieve.c:53:25: note: (near initialization for 'can_functions')
+../Core/Src/sys_can_recieve.c:45:13: warning: 'msg2_handler' defined but not used [-Wunused-function]
+   45 | static void msg2_handler(can_data_t msg) {
+      |             ^~~~~~~~~~~~
+../Core/Src/sys_can_recieve.c:41:13: warning: 'msg1_handler' defined but not used [-Wunused-function]
+   41 | static void msg1_handler(can_data_t msg) {
+      |             ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_Test2.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\corre\coding\can-test-1\CAN_Test2\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Test2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Test2.elf
+ 
+arm-none-eabi-size  CAN_Test2.elf 
+arm-none-eabi-objdump -h -S CAN_Test2.elf  > "CAN_Test2.list"
+   text	   data	    bss	    dec	    hex	filename
+  17720	     20	   3084	  20824	   5158	CAN_Test2.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Test2.list
+ 
+17:54:22 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+17:54:23 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/sys_can_recieve.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_recieve.d" -MT"Core/Src/sys_can_recieve.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_recieve.o"
+../Core/Src/sys_can_recieve.c:45:13: warning: 'msg2_handler' defined but not used [-Wunused-function]
+   45 | static void msg2_handler(can_data_t msg) {
+      |             ^~~~~~~~~~~~
+../Core/Src/sys_can_recieve.c:41:13: warning: 'msg1_handler' defined but not used [-Wunused-function]
+   41 | static void msg1_handler(can_data_t msg) {
+      |             ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_Test2.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\corre\coding\can-test-1\CAN_Test2\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Test2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Test2.elf
+ 
+arm-none-eabi-size  CAN_Test2.elf 
+arm-none-eabi-objdump -h -S CAN_Test2.elf  > "CAN_Test2.list"
+   text	   data	    bss	    dec	    hex	filename
+  17720	     20	   3084	  20824	   5158	CAN_Test2.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Test2.list
+ 
+17:55:25 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+17:55:26 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/sys_can_recieve.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_recieve.d" -MT"Core/Src/sys_can_recieve.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_recieve.o"
+../Core/Src/sys_can_recieve.c:48:13: warning: 'msg2_handler' defined but not used [-Wunused-function]
+   48 | static void msg2_handler(can_data_t msg) {
+      |             ^~~~~~~~~~~~
+../Core/Src/sys_can_recieve.c:44:13: warning: 'msg1_handler' defined but not used [-Wunused-function]
+   44 | static void msg1_handler(can_data_t msg) {
+      |             ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_Test2.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\corre\coding\can-test-1\CAN_Test2\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Test2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Test2.elf
+ 
+arm-none-eabi-size  CAN_Test2.elf 
+arm-none-eabi-objdump -h -S CAN_Test2.elf  > "CAN_Test2.list"
+   text	   data	    bss	    dec	    hex	filename
+  17748	     20	   3084	  20852	   5174	CAN_Test2.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Test2.list
+ 
+17:57:56 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+17:57:57 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/sys_can_recieve.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_recieve.d" -MT"Core/Src/sys_can_recieve.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_recieve.o"
+../Core/Src/sys_can_recieve.c:46:13: warning: 'msg2_handler' defined but not used [-Wunused-function]
+   46 | static void msg2_handler(can_data_t msg) {
+      |             ^~~~~~~~~~~~
+../Core/Src/sys_can_recieve.c:42:13: warning: 'msg1_handler' defined but not used [-Wunused-function]
+   42 | static void msg1_handler(can_data_t msg) {
+      |             ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_Test2.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\corre\coding\can-test-1\CAN_Test2\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Test2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Test2.elf
+ 
+arm-none-eabi-size  CAN_Test2.elf 
+arm-none-eabi-objdump -h -S CAN_Test2.elf  > "CAN_Test2.list"
+   text	   data	    bss	    dec	    hex	filename
+  17724	     20	   3084	  20828	   515c	CAN_Test2.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Test2.list
+ 
+17:59:18 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+17:59:19 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/sys_can_recieve.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_recieve.d" -MT"Core/Src/sys_can_recieve.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_recieve.o"
+../Core/Src/sys_can_recieve.c:48:13: warning: 'msg2_handler' defined but not used [-Wunused-function]
+   48 | static void msg2_handler(can_data_t msg) {
+      |             ^~~~~~~~~~~~
+../Core/Src/sys_can_recieve.c:44:13: warning: 'msg1_handler' defined but not used [-Wunused-function]
+   44 | static void msg1_handler(can_data_t msg) {
+      |             ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_Test2.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\corre\coding\can-test-1\CAN_Test2\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Test2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Test2.elf
+ 
+arm-none-eabi-size  CAN_Test2.elf 
+arm-none-eabi-objdump -h -S CAN_Test2.elf  > "CAN_Test2.list"
+   text	   data	    bss	    dec	    hex	filename
+  17748	     20	   3084	  20852	   5174	CAN_Test2.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Test2.list
+ 
