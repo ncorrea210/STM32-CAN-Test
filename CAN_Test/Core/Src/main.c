@@ -122,6 +122,7 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 
+  HAL_TIM_Base_Start_IT(&htim2);
   HAL_CAN_Start(&hcan1);
   can_tx_init(&hcan1, &TxMailbox);
 
@@ -138,7 +139,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
+	  can_tx_refresh();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

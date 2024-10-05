@@ -1797,3 +1797,481 @@ arm-none-eabi-size  CAN_Test.elf
   15948	     12	   1980	  17940	   4614	CAN_Test.elf
 Finished building: default.size.stdout
  
+12:16:29 **** Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f7xx_it.d" -MT"Core/Src/stm32f7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f7xx_it.o"
+arm-none-eabi-gcc "../Core/Src/sys_can_transmit.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_transmit.d" -MT"Core/Src/sys_can_transmit.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_transmit.o"
+In file included from ../Core/Src/sys_can_transmit.c:1:
+../Core/Inc/sys_can_transmit.h:26:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  _Bool)' {aka 'void(long unsigned int,  _Bool)'}
+   26 | void can_update_param(uint32_t index, bool data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:27:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  int32_t)' {aka 'void(long unsigned int,  long int)'}
+   27 | void can_update_param(uint32_t index, int32_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+In file included from ../Core/Src/main.c:25:
+../Core/Inc/sys_can_transmit.h:26:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  _Bool)' {aka 'void(long unsigned int,  _Bool)'}
+   26 | void can_update_param(uint32_t index, bool data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:27:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  int32_t)' {aka 'void(long unsigned int,  long int)'}
+   27 | void can_update_param(uint32_t index, int32_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:28:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  float)' {aka 'void(long unsigned int,  float)'}
+   28 | void can_update_param(uint32_t index, float data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:28:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  float)' {aka 'void(long unsigned int,  float)'}
+   28 | void can_update_param(uint32_t index, float data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+In file included from ../Core/Src/stm32f7xx_it.c:25:
+../Core/Inc/sys_can_transmit.h:26:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  _Bool)' {aka 'void(long unsigned int,  _Bool)'}
+   26 | void can_update_param(uint32_t index, bool data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:27:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  int32_t)' {aka 'void(long unsigned int,  long int)'}
+   27 | void can_update_param(uint32_t index, int32_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:28:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  float)' {aka 'void(long unsigned int,  float)'}
+   28 | void can_update_param(uint32_t index, float data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_IRQHandler':
+../Core/Src/main.c:112:26: error: 'current_tx_params' undeclared (first use in this function); did you mean 'num_tx_params'?
+  112 |           can_tx_refresh(current_tx_params);
+      |                          ^~~~~~~~~~~~~~~~~
+      |                          num_tx_params
+../Core/Src/main.c:112:26: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:37: Core/Src/sys_can_transmit.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:37: Core/Src/stm32f7xx_it.o] Error 1
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j22 all" terminated with exit code 2. Build might be incomplete.
+12:16:30 **** Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17564	     20	   3036	  20620	   508c	CAN_Test2.elf
+Finished building: default.size.stdout
+ 
+12:16:40 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f7xx_it.d" -MT"Core/Src/stm32f7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f7xx_it.o"
+arm-none-eabi-gcc "../Core/Src/sys_can_transmit.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_transmit.d" -MT"Core/Src/sys_can_transmit.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_transmit.o"
+In file included from ../Core/Src/main.c:25:
+../Core/Inc/sys_can_transmit.h:26:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  _Bool)' {aka 'void(long unsigned int,  _Bool)'}
+   26 | void can_update_param(uint32_t index, bool data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:27:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  int32_t)' {aka 'void(long unsigned int,  long int)'}
+   27 | void can_update_param(uint32_t index, int32_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:28:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  float)' {aka 'void(long unsigned int,  float)'}
+   28 | void can_update_param(uint32_t index, float data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+In file included from ../Core/Src/stm32f7xx_it.c:25:
+../Core/Inc/sys_can_transmit.h:26:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  _Bool)' {aka 'void(long unsigned int,  _Bool)'}
+   26 | void can_update_param(uint32_t index, bool data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:27:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  int32_t)' {aka 'void(long unsigned int,  long int)'}
+   27 | void can_update_param(uint32_t index, int32_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:28:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  float)' {aka 'void(long unsigned int,  float)'}
+   28 | void can_update_param(uint32_t index, float data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+In file included from ../Core/Src/sys_can_transmit.c:1:
+../Core/Inc/sys_can_transmit.h:26:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  _Bool)' {aka 'void(long unsigned int,  _Bool)'}
+   26 | void can_update_param(uint32_t index, bool data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:27:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  int32_t)' {aka 'void(long unsigned int,  long int)'}
+   27 | void can_update_param(uint32_t index, int32_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:28:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  float)' {aka 'void(long unsigned int,  float)'}
+   28 | void can_update_param(uint32_t index, float data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/stm32f7xx_it.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:37: Core/Src/sys_can_transmit.o] Error 1
+../Core/Src/main.c: In function 'HAL_TIM_IRQHandler':
+../Core/Src/main.c:112:26: error: 'current_tx_params' undeclared (first use in this function); did you mean 'num_tx_params'?
+  112 |           can_tx_refresh(current_tx_params);
+      |                          ^~~~~~~~~~~~~~~~~
+      |                          num_tx_params
+../Core/Src/main.c:112:26: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j22 all" terminated with exit code 2. Build might be incomplete.
+12:16:50 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f7xx_it.d" -MT"Core/Src/stm32f7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f7xx_it.o"
+arm-none-eabi-gcc "../Core/Src/sys_can_transmit.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_transmit.d" -MT"Core/Src/sys_can_transmit.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_transmit.o"
+In file included from ../Core/Src/main.c:25:
+../Core/Inc/sys_can_transmit.h:26:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  _Bool)' {aka 'void(long unsigned int,  _Bool)'}
+   26 | void can_update_param(uint32_t index, bool data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:27:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  int32_t)' {aka 'void(long unsigned int,  long int)'}
+   27 | void can_update_param(uint32_t index, int32_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:28:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  float)' {aka 'void(long unsigned int,  float)'}
+   28 | void can_update_param(uint32_t index, float data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+In file included from ../Core/Src/sys_can_transmit.c:1:
+../Core/Inc/sys_can_transmit.h:26:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  _Bool)' {aka 'void(long unsigned int,  _Bool)'}
+   26 | void can_update_param(uint32_t index, bool data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:27:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  int32_t)' {aka 'void(long unsigned int,  long int)'}
+   27 | void can_update_param(uint32_t index, int32_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:28:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  float)' {aka 'void(long unsigned int,  float)'}
+   28 | void can_update_param(uint32_t index, float data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+In file included from ../Core/Src/stm32f7xx_it.c:25:
+../Core/Inc/sys_can_transmit.h:26:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  _Bool)' {aka 'void(long unsigned int,  _Bool)'}
+   26 | void can_update_param(uint32_t index, bool data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:27:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  int32_t)' {aka 'void(long unsigned int,  long int)'}
+   27 | void can_update_param(uint32_t index, int32_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:28:6: error: conflicting types for 'can_update_param'; have 'void(uint32_t,  float)' {aka 'void(long unsigned int,  float)'}
+   28 | void can_update_param(uint32_t index, float data);
+      |      ^~~~~~~~~~~~~~~~
+../Core/Inc/sys_can_transmit.h:24:6: note: previous declaration of 'can_update_param' with type 'void(uint32_t,  can_data_t)' {aka 'void(long unsigned int,  can_data_t)'}
+   24 | void can_update_param(uint32_t index, can_data_t data);
+      |      ^~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/sys_can_transmit.o] Error 1
+make: *** [Core/Src/subdir.mk:37: Core/Src/stm32f7xx_it.o] Error 1
+"make -j22 all" terminated with exit code 2. Build might be incomplete.
+12:17:44 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f7xx_it.d" -MT"Core/Src/stm32f7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f7xx_it.o"
+arm-none-eabi-gcc "../Core/Src/sys_can_transmit.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_transmit.d" -MT"Core/Src/sys_can_transmit.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_transmit.o"
+arm-none-eabi-gcc -o "CAN_Test.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\corre\coding\can-test-1\CAN_Test\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_tim.o: in function `HAL_TIM_IRQHandler':
+C:/Users/corre/coding/can-test-1/CAN_Test/Debug/../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_tim.c:3835: multiple definition of `HAL_TIM_IRQHandler'; ./Core/Src/main.o:C:/Users/corre/coding/can-test-1/CAN_Test/Debug/../Core/Src/main.c:88: first defined here
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `HAL_TIM_IRQHandler':
+C:/Users/corre/coding/can-test-1/CAN_Test/Debug/../Core/Src/main.c:109: undefined reference to `can_update_bparam'
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/Users/corre/coding/can-test-1/CAN_Test/Debug/../Core/Src/main.c:110: undefined reference to `can_update_bparam'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: CAN_Test.elf] Error 1
+"make -j22 all" terminated with exit code 2. Build might be incomplete.
+12:22:53 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/sys_can_transmit.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_transmit.d" -MT"Core/Src/sys_can_transmit.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_transmit.o"
+../Core/Src/sys_can_transmit.c: In function 'can_update_param':
+../Core/Src/sys_can_transmit.c:22:49: warning: passing argument 2 of 'shallow_copy' from incompatible pointer type [-Wincompatible-pointer-types]
+   22 |         shallow_copy(&current_tx_params[index], &data);
+      |                                                 ^~~~~
+      |                                                 |
+      |                                                 can_data_t *
+../Core/Src/sys_can_transmit.c:17:57: note: expected 'tx_param_t *' but argument is of type 'can_data_t *'
+   17 | static void shallow_copy(tx_param_t* first, tx_param_t* second) {
+      |                                             ~~~~~~~~~~~~^~~~~~
+../Core/Src/sys_can_transmit.c: In function 'can_incremental_update':
+../Core/Src/sys_can_transmit.c:66:43: error: 'last_tx_params' undeclared (first use in this function); did you mean 'last_param'?
+   66 |                 tx_param_t* last_param = &last_tx_params[i];
+      |                                           ^~~~~~~~~~~~~~
+      |                                           last_param
+../Core/Src/sys_can_transmit.c:66:43: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/sys_can_transmit.c: In function 'can_tx_refresh':
+../Core/Src/sys_can_transmit.c:77:54: error: 'last_tx_params' undeclared (first use in this function); did you mean 'num_tx_params'?
+   77 |                 shallow_copy(&current_tx_params[i], &last_tx_params[i]);
+      |                                                      ^~~~~~~~~~~~~~
+      |                                                      num_tx_params
+make: *** [Core/Src/subdir.mk:37: Core/Src/sys_can_transmit.o] Error 1
+"make -j22 all" terminated with exit code 2. Build might be incomplete.
+12:23:05 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/sys_can_transmit.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_transmit.d" -MT"Core/Src/sys_can_transmit.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_transmit.o"
+../Core/Src/sys_can_transmit.c: In function 'can_update_param':
+../Core/Src/sys_can_transmit.c:22:49: warning: passing argument 2 of 'shallow_copy' from incompatible pointer type [-Wincompatible-pointer-types]
+   22 |         shallow_copy(&current_tx_params[index], &data);
+      |                                                 ^~~~~
+      |                                                 |
+      |                                                 can_data_t *
+../Core/Src/sys_can_transmit.c:17:57: note: expected 'tx_param_t *' but argument is of type 'can_data_t *'
+   17 | static void shallow_copy(tx_param_t* first, tx_param_t* second) {
+      |                                             ~~~~~~~~~~~~^~~~~~
+../Core/Src/sys_can_transmit.c: In function 'can_incremental_update':
+../Core/Src/sys_can_transmit.c:66:52: error: 'last_param' undeclared (first use in this function); did you mean 'assert_param'?
+   66 |                 if (current_param->tx_data.ival != last_param->tx_data.ival) {
+      |                                                    ^~~~~~~~~~
+      |                                                    assert_param
+../Core/Src/sys_can_transmit.c:66:52: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:37: Core/Src/sys_can_transmit.o] Error 1
+"make -j22 all" terminated with exit code 2. Build might be incomplete.
+12:23:14 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/sys_can_transmit.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_transmit.d" -MT"Core/Src/sys_can_transmit.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_transmit.o"
+../Core/Src/sys_can_transmit.c: In function 'can_update_param':
+../Core/Src/sys_can_transmit.c:22:49: warning: passing argument 2 of 'shallow_copy' from incompatible pointer type [-Wincompatible-pointer-types]
+   22 |         shallow_copy(&current_tx_params[index], &data);
+      |                                                 ^~~~~
+      |                                                 |
+      |                                                 can_data_t *
+../Core/Src/sys_can_transmit.c:17:57: note: expected 'tx_param_t *' but argument is of type 'can_data_t *'
+   17 | static void shallow_copy(tx_param_t* first, tx_param_t* second) {
+      |                                             ~~~~~~~~~~~~^~~~~~
+arm-none-eabi-gcc -o "CAN_Test.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\corre\coding\can-test-1\CAN_Test\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_tim.o: in function `HAL_TIM_IRQHandler':
+C:/Users/corre/coding/can-test-1/CAN_Test/Debug/../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_tim.c:3835: multiple definition of `HAL_TIM_IRQHandler'; ./Core/Src/main.o:C:/Users/corre/coding/can-test-1/CAN_Test/Debug/../Core/Src/main.c:88: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: CAN_Test.elf] Error 1
+"make -j22 all" terminated with exit code 2. Build might be incomplete.
+12:24:18 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f7xx_it.d" -MT"Core/Src/stm32f7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f7xx_it.o"
+arm-none-eabi-gcc "../Core/Src/sys_can_transmit.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_transmit.d" -MT"Core/Src/sys_can_transmit.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_transmit.o"
+../Core/Src/sys_can_transmit.c:17:13: warning: 'shallow_copy' defined but not used [-Wunused-function]
+   17 | static void shallow_copy(tx_param_t* first, tx_param_t* second) {
+      |             ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_Test.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\corre\coding\can-test-1\CAN_Test\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_tim.o: in function `HAL_TIM_IRQHandler':
+C:/Users/corre/coding/can-test-1/CAN_Test/Debug/../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_tim.c:3835: multiple definition of `HAL_TIM_IRQHandler'; ./Core/Src/main.o:C:/Users/corre/coding/can-test-1/CAN_Test/Debug/../Core/Src/main.c:88: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: CAN_Test.elf] Error 1
+"make -j22 all" terminated with exit code 2. Build might be incomplete.
+12:24:55 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f7xx_it.d" -MT"Core/Src/stm32f7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f7xx_it.o"
+arm-none-eabi-gcc -o "CAN_Test.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\corre\coding\can-test-1\CAN_Test\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Test.elf
+ 
+arm-none-eabi-size  CAN_Test.elf 
+arm-none-eabi-objdump -h -S CAN_Test.elf  > "CAN_Test.list"
+   text	   data	    bss	    dec	    hex	filename
+  15340	     12	   1916	  17268	   4374	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Test.list
+ 
+12:28:52 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f7xx_it.d" -MT"Core/Src/stm32f7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f7xx_it.o"
+arm-none-eabi-gcc "../Core/Src/sys_can_transmit.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_transmit.d" -MT"Core/Src/sys_can_transmit.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_transmit.o"
+../Core/Src/sys_can_transmit.c:17:13: warning: 'shallow_copy' defined but not used [-Wunused-function]
+   17 | static void shallow_copy(tx_param_t* first, tx_param_t* second) {
+      |             ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_Test.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\corre\coding\can-test-1\CAN_Test\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Test.elf
+ 
+arm-none-eabi-size  CAN_Test.elf 
+arm-none-eabi-objdump -h -S CAN_Test.elf  > "CAN_Test.list"
+   text	   data	    bss	    dec	    hex	filename
+  15924	     12	   1916	  17852	   45bc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Test.list
+ 
+12:29:11 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/sys_can_transmit.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_transmit.d" -MT"Core/Src/sys_can_transmit.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_transmit.o"
+arm-none-eabi-gcc -o "CAN_Test.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\corre\coding\can-test-1\CAN_Test\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Test.elf
+ 
+arm-none-eabi-size  CAN_Test.elf 
+arm-none-eabi-objdump -h -S CAN_Test.elf  > "CAN_Test.list"
+   text	   data	    bss	    dec	    hex	filename
+  15924	     12	   1916	  17852	   45bc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Test.list
+ 
+15:44:51 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "CAN_Test.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\corre\coding\can-test-1\CAN_Test\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Test.elf
+ 
+arm-none-eabi-size  CAN_Test.elf 
+arm-none-eabi-objdump -h -S CAN_Test.elf  > "CAN_Test.list"
+   text	   data	    bss	    dec	    hex	filename
+  16180	     12	   1916	  18108	   46bc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Test.list
+ 
+15:44:52 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17564	     20	   3036	  20620	   508c	CAN_Test2.elf
+Finished building: default.size.stdout
+ 
+15:48:24 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/sys_can_transmit.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_transmit.d" -MT"Core/Src/sys_can_transmit.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_transmit.o"
+../Core/Src/sys_can_transmit.c: In function 'can_tx_refresh':
+../Core/Src/sys_can_transmit.c:66:44: error: 'LD1_GPIO_Port' undeclared (first use in this function)
+   66 |                         HAL_GPIO_TogglePin(LD1_GPIO_Port, LD1_Pin);
+      |                                            ^~~~~~~~~~~~~
+../Core/Src/sys_can_transmit.c:66:44: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/sys_can_transmit.c:66:59: error: 'LD1_Pin' undeclared (first use in this function)
+   66 |                         HAL_GPIO_TogglePin(LD1_GPIO_Port, LD1_Pin);
+      |                                                           ^~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/sys_can_transmit.o] Error 1
+"make -j22 all" terminated with exit code 2. Build might be incomplete.
+15:48:50 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/sys_can_transmit.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_transmit.d" -MT"Core/Src/sys_can_transmit.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_transmit.o"
+arm-none-eabi-gcc -o "CAN_Test.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\corre\coding\can-test-1\CAN_Test\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Test.elf
+ 
+arm-none-eabi-size  CAN_Test.elf 
+arm-none-eabi-objdump -h -S CAN_Test.elf  > "CAN_Test.list"
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Test.list
+ 
+15:48:57 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+15:49:15 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+15:51:13 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/stm32f7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f7xx_it.d" -MT"Core/Src/stm32f7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f7xx_it.o"
+arm-none-eabi-gcc "../Core/Src/sys_can_transmit.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sys_can_transmit.d" -MT"Core/Src/sys_can_transmit.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sys_can_transmit.o"
+arm-none-eabi-gcc -o "CAN_Test.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\corre\coding\can-test-1\CAN_Test\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Test.elf
+ 
+arm-none-eabi-size  CAN_Test.elf 
+arm-none-eabi-objdump -h -S CAN_Test.elf  > "CAN_Test.list"
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Test.list
+ 
+15:51:17 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+15:53:26 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+15:53:27 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17564	     20	   3036	  20620	   508c	CAN_Test2.elf
+Finished building: default.size.stdout
+ 
+15:55:25 **** Incremental Build of configuration Debug for project CAN_Test ****
+make -j22 all 
+arm-none-eabi-size  CAN_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16244	     12	   1916	  18172	   46fc	CAN_Test.elf
+Finished building: default.size.stdout
+ 
+15:55:26 **** Incremental Build of configuration Debug for project CAN_Test2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "CAN_Test2.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\corre\coding\can-test-1\CAN_Test2\STM32F767ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Test2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Test2.elf
+ 
+arm-none-eabi-size  CAN_Test2.elf 
+arm-none-eabi-objdump -h -S CAN_Test2.elf  > "CAN_Test2.list"
+   text	   data	    bss	    dec	    hex	filename
+  17536	     20	   3036	  20592	   5070	CAN_Test2.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Test2.list
+ 

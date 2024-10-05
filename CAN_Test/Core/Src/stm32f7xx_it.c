@@ -205,10 +205,12 @@ void SysTick_Handler(void)
 void TIM2_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM2_IRQn 0 */
-  static int i = 0;
+
   /* USER CODE END TIM2_IRQn 0 */
   HAL_TIM_IRQHandler(&htim2);
   /* USER CODE BEGIN TIM2_IRQn 1 */
+  static int i = 0;
+
   bool led_1_on;
   bool led_2_on;
 
@@ -227,12 +229,11 @@ void TIM2_IRQHandler(void)
 	  led_2_on = true;
   }
 
-  current_tx_params[LD1_CAN].tx_data.bval = led_1_on;
-  current_tx_params[LD2_CAN].tx_data.bval = led_2_on;
-
-  can_tx_refresh(current_tx_params);
+  can_update_bparam(LD1_CAN, led_1_on);
+  can_update_bparam(LD2_CAN, led_2_on);
 
   i++;
+  HAL_GPIO_TogglePin(LD1_GPIO_Port, LD1_Pin);
   /* USER CODE END TIM2_IRQn 1 */
 }
 

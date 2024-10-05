@@ -1,7 +1,7 @@
 #include "sys_can_transmit.h"
+#include "main.h"
 
 const int num_tx_params = 2;
-tx_param_t last_tx_params[2];
 tx_param_t current_tx_params[2];
 const uint32_t std_id = 0x103;
 const uint32_t std_DLC = 8;
@@ -11,12 +11,23 @@ const uint32_t std_RTR = CAN_RTR_DATA;
 static uint32_t* TxMailbox;
 static CAN_HandleTypeDef* hcan1;
 
-static void send_can_message(tx_param_t* param) {
-	while (HAL_CAN_AddTxMessage(hcan1, &param->tx_header, param->tx_data.data, TxMailbox) != HAL_OK);
+static HAL_StatusTypeDef send_can_message(tx_param_t* param) {
+	return HAL_CAN_AddTxMessage(hcan1, &param->tx_header, param->tx_data.data, TxMailbox);
 }
 
-static void shallow_copy(tx_param_t* first, tx_param_t* second) {
-	first->tx_data.ival = second->tx_data.ival;
+void can_update_bparam(uint32_t index, bool data) {
+	current_tx_params[index].tx_data.bval = data;
+	current_tx_params[index].to_send = true;
+}
+
+void can_update_iparam(uint32_t index, int32_t data) {
+	current_tx_params[index].tx_data.ival = data;
+	current_tx_params[index].to_send = true;
+}
+
+void can_update_fparam(uint32_t index, float data) {
+	current_tx_params[index].tx_data.fval = data;
+	current_tx_params[index].to_send = true;
 }
 
 void can_tx_init(CAN_HandleTypeDef* hcan, uint32_t* mailbox) {
@@ -26,16 +37,7 @@ void can_tx_init(CAN_HandleTypeDef* hcan, uint32_t* mailbox) {
 
 	// code here to be auto generated but for now it will not be
 	for (int i = 0; i < num_tx_params; i++) {
-		tx_param_t* last_param = &last_tx_params[i];
 		tx_param_t* current_param = &current_tx_params[i];
-
-		last_param->tx_header.IDE = std_IDE;
-		last_param->tx_header.DLC = std_DLC;
-		last_param->tx_header.RTR = std_RTR;
-		last_param->tx_header.StdId = std_id;
-		last_param->tx_header.TransmitGlobalTime = ENABLE;
-		last_param->tx_data.ID = i + 1;
-		last_param->tx_data.bval = false;
 
 		current_param->tx_header.IDE = std_IDE;
 		current_param->tx_header.DLC = std_DLC;
@@ -44,8 +46,7 @@ void can_tx_init(CAN_HandleTypeDef* hcan, uint32_t* mailbox) {
 		current_param->tx_header.TransmitGlobalTime = ENABLE;
 		current_param->tx_data.ID = i + 1;
 		current_param->tx_data.bval = false;
-
-		send_can_message(current_param);
+		current_param->to_send = true;
 
 	}
 
@@ -54,17 +55,15 @@ void can_tx_init(CAN_HandleTypeDef* hcan, uint32_t* mailbox) {
 void can_incremental_update(tx_param_t* tx_params) {
 	for (int i = 0; i < num_tx_params; i++) {
 		tx_param_t* current_param = &current_tx_params[i];
-		tx_param_t* last_param = &last_tx_params[i];
-		if (current_param->tx_data.ival != last_param->tx_data.ival) {
-			send_can_message(current_param);
-			shallow_copy(current_param, last_param);
-		}
+		send_can_message(current_param);
 	}
 }
 
-void can_tx_refresh(tx_param_t* tx_param) {
+void can_tx_refresh() {
 	for (int i = 0; i < num_tx_params; i++) {
-		send_can_message(&current_tx_params[i]);
-		shallow_copy(&current_tx_params[i], &last_tx_params[i]);
+		if (!current_tx_params[i].to_send) continue;
+		if (send_can_message(&current_tx_params[i]) == HAL_OK) {
+			current_tx_params[i].to_send = false;
+		}
 	}
 }
