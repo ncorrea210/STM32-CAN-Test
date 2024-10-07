@@ -2,6 +2,8 @@
 #include "stm32f7xx_hal.h"
 #include "main.h"
 
+#define STALE_CONSTANT 1200
+
 typedef struct {
 	can_data_t data;
 	uint32_t timestamp;
@@ -24,7 +26,7 @@ void can_recieve_message(CAN_HandleTypeDef* hcan) {
 void can_recieve_stale() {
 	uint32_t tick = HAL_GetTick();
 	for (int i = 0; i < can_num_functions; i++) {
-		if (rx_params[i].timestamp + 1000 < tick) {
+		if (rx_params[i].timestamp + STALE_CONSTANT < tick) {
 			rx_params[i].stale = true;
 		}
 	}
